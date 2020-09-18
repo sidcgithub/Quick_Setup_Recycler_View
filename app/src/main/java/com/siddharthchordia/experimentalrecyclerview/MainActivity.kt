@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.siddharthchordia.quickrecyclerview.OnQuickItemClickListener
 import com.siddharthchordia.quickrecyclerview.QuickAdapter
 import com.siddharthchordia.quickrecyclerview.QuickItem
-import com.siddharthchordia.quickrecyclerview.SetupQuickRecycler
 import com.siddharthchordia.quickrecyclerview.SetupQuickRecycler.Companion.setupRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -39,9 +38,10 @@ class MainActivity : AppCompatActivity() {
                 override fun onQuickItemClick(
                     item: View?,
                     position: Int,
-                    itemView: View
+                    itemView: View,
+                    originalPosition: Int
                 ) {
-                    Toast.makeText(this@MainActivity, names[position], Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, names[originalPosition], Toast.LENGTH_LONG).show()
 
 
                 }

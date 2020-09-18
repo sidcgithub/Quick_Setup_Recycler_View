@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -25,7 +24,8 @@ class QuickAdapter(
 
     }
 
-    class QuickViewHolder(val rootItemView: View, val listener: OnQuickItemClickListener) :
+    class QuickViewHolder(val rootItemView: View, val listener: OnQuickItemClickListener, val myDataset: MutableList<QuickItem>,
+                          val myDatasetCopy:MutableList<QuickItem>) :
         RecyclerView.ViewHolder(rootItemView), View.OnClickListener {
 
         init {
@@ -33,7 +33,10 @@ class QuickAdapter(
         }
 
         override fun onClick(item: View?) {
-            listener.onQuickItemClick(item, adapterPosition, rootItemView)
+
+            var originalPosition = myDatasetCopy.indexOf(myDataset[adapterPosition])
+
+            listener.onQuickItemClick(item, adapterPosition, rootItemView, originalPosition)
         }
 
     }
@@ -49,7 +52,7 @@ class QuickAdapter(
     ): QuickAdapter.QuickViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        return QuickViewHolder(itemView, listener)
+        return QuickViewHolder(itemView, listener,myDataset, myDatasetCopy)
     }
 
     override fun getItemCount(): Int {

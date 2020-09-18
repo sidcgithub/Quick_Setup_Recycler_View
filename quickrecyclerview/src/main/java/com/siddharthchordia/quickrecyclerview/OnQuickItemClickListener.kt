@@ -4,6 +4,11 @@ import android.view.View
 
 interface OnQuickItemClickListener{
 
-    fun onQuickItemClick(item:View?, position:Int,itemView:View)
+    fun onQuickItemClick(
+        item: View?,
+        position: Int,
+        itemView: View,
+        originalPosition: Int
+    )
 
 }
