@@ -1,4 +1,4 @@
-# Experimental_Recycler_View
+# Quick_Recycler_View
 A reusable recycler view that can be used for quick setup, adapt to different views and also search on different criteria.
 
 [![](https://jitpack.io/v/sidcgithub/Experimental_Recycler_View.svg)](https://jitpack.io/#sidcgithub/Experimental_Recycler_View)
